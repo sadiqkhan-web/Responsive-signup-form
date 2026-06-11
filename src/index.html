@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation interactive form</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./custom animations.css" />
+  </head>
+
+  <body
+    class="relative flex min-h-dvh items-center justify-center overflow-hidden bg-linear-to-br from-gray-900 via-purple-900 to-black"
+  >
+    <div
+      id="cursorAura"
+      class="pointer-events-none fixed top-1/2 left-1/2 z-10 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-r from-purple-500/30 via-blue-500/20 to-pink-500/20 blur-3xl"
+    ></div>
+    <div
+      class="absolute top-10 left-10 h-60 w-60 animate-pulse rounded-full bg-purple-500 opacity-30 blur-3xl md:block md:h-96 md:w-96"
+    ></div>
+
+    <div
+      class="absolute right-10 bottom-10 h-60 w-60 animate-pulse rounded-full bg-blue-500 opacity-30 blur-3xl md:block md:h-96 md:w-96"
+    ></div>
+    <form class="signup-form" novalidate action="">
+      <div
+        class="form-container relative z-10 w-full min-w-0 rounded-2xl border border-white/10 bg-white/10 p-5 shadow-2xl backdrop-blur-2xl transition duration-300 hover:scale-[1.02] md:w-[35vw] md:min-w-[320px] md:p-8"
+      >
+        <div
+          class="signin-text -mt-1 text-center text-[20px] font-extrabold text-white/90 md:-mt-2 md:text-3xl md:text-white/90"
+        >
+          Sign up to your account
+        </div>
+
+        <div class="mt-1.5 space-y-1 md:mt-3">
+          <div>
+            <p class="name mb-0.5 text-xs text-white/70 md:text-sm">
+              Full name
+            </p>
+            <input
+              type="text"
+              class="fullName-box w-full rounded-xl border border-white/10 bg-white/10 px-4 py-1 text-white transition outline-none placeholder:text-sm focus:border-purple-400 focus:ring-1 focus:ring-purple-500 md:py-2 md:placeholder:text-base"
+              placeholder="Enter your full name"
+            />
+            <p
+              class="name-error h-2 text-xs text-red-500 md:h-3 md:text-sm"
+            ></p>
+          </div>
+
+          <div>
+            <p class="email-name mb-0.5 text-xs text-white/70 md:text-sm">
+              Email address
+            </p>
+            <input
+              type="text"
+              class="email-box w-full rounded-xl border border-white/10 bg-white/10 px-4 py-1 text-white transition outline-none placeholder:text-sm focus:border-purple-400 focus:ring-1 focus:ring-purple-500 md:py-2 md:placeholder:text-base"
+              placeholder="Enter your email address"
+            />
+            <p
+              class="email-error h-2 text-xs text-red-500 md:h-3 md:text-sm"
+            ></p>
+          </div>
+
+          <div class="relative">
+            <p class="password-name mb-0.5 text-xs text-white/70 md:text-sm">
+              Password
+            </p>
+            <input
+              type="password"
+              maxlength="24"
+              class="password-box w-full rounded-xl border border-white/10 bg-white/10 px-4 py-1 text-white transition outline-none placeholder:text-sm focus:border-purple-400 focus:ring-1 focus:ring-purple-500 md:py-2 md:placeholder:text-base"
+              placeholder="Enter your password"
+            />
+            <span
+              class="password-strength absolute top-1/2 right-18 -translate-y-1.5 text-sm font-medium"
+            ></span>
+            <span
+              class="character-counter absolute top-1/2 right-7.5 hidden -translate-y-1.5 text-sm font-medium"
+              >0/24</span
+            >
+            <div
+              class="eye-toggle absolute top-1/2 right-2 hidden -translate-y-1.5 cursor-pointer text-white/50"
+            >
+              <svg
+                class="eye-open h-5 w-5 transition-all duration-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+
+              <!-- CLOSED -->
+              <svg
+                class="eye-closed hidden h-5 w-5 transition-all duration-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3l18 18"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7
+      -1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <p
+              class="password-error h-2 text-xs text-red-500 md:h-3 md:text-sm"
+            ></p>
+          </div>
+          <div class="relative">
+            <p class="mb-0.5 text-xs text-white/70 md:text-sm">Age</p>
+            <input
+              type="number"
+              min="18"
+              max="100"
+              class="age-box w-full rounded-xl border border-white/10 bg-white/10 px-4 py-1 text-white transition outline-none placeholder:text-sm focus:border-purple-400 focus:ring-1 focus:ring-purple-500 md:py-2 md:placeholder:text-base"
+              placeholder="Enter your age"
+            />
+
+            <span
+              class="age-status absolute top-[45%] left-15 flex items-center justify-center text-sm font-medium transition-all duration-300"
+            ></span>
+            <p class="age-error h-2 text-xs text-red-500 md:h-3 md:text-sm"></p>
+          </div>
+          <div class="flex gap-4 text-white/80">
+            <p class="mt-1 mb-0.5 text-xs text-white/70 md:text-sm">
+              Select gender
+            </p>
+            <label class="mt-1 ml-4 flex items-center gap-1">
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                checked
+                class="accent-purple-600"
+              />
+              <span
+                class="flex justify-between text-xs text-white/70 md:text-sm"
+                >Male</span
+              >
+            </label>
+            <label class="mt-1 flex items-center gap-1 text-white/70">
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                class="accent-purple-600"
+              />
+              <span class="text-xs md:text-sm">Female</span>
+            </label>
+          </div>
+          <div
+            class="group absolute right-7 flex items-end md:right-12 md:bottom-51"
+          >
+            <svg
+              class="reset-icon hidden h-4 w-4 cursor-pointer text-white/60 transition duration-200 hover:scale-110 hover:text-red-400 md:block md:h-5 md:w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke="currentColor"
+                stroke-width="2"
+                d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9"
+              />
+            </svg>
+            <span
+              class="pointer-events-none absolute top-1/2 right-6 hidden -translate-y-1/2 rounded bg-black/65 px-2 py-0.5 text-xs whitespace-nowrap text-white group-hover:block"
+            >
+              Reset Form
+            </span>
+          </div>
+          <div class="mt-3 md:mt-6">
+            <button
+              type="submit"
+              class="submitData w-full cursor-pointer rounded-xl bg-linear-to-r from-purple-500 to-blue-500 py-1.5 font-semibold text-white shadow-lg transition duration-300 hover:scale-[1.02] hover:opacity-90 md:py-2.5"
+            >
+              Sign Up
+            </button>
+          </div>
+          <div class="create-account mt-3 text-center text-xs md:text-base">
+            <p class="text-white/80">
+              Already have an account?
+              <a href="#">
+                <span
+                  class="font-semibold text-blue-400 underline hover:underline md:no-underline"
+                >
+                  Log In
+                </span>
+              </a>
+            </p>
+          </div>
+          <div class="mt-1 flex items-center md:mt-2">
+            <div class="grow border-t border-gray-500"></div>
+            <span class="mx-4 text-xs font-medium text-gray-400 md:text-sm"
+              >OR</span
+            >
+            <div class="grow border-t border-gray-500"></div>
+          </div>
+          <button
+            type="button"
+            class="signupGoogle mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/50 py-1.5 font-medium text-white shadow-lg transition duration-300 hover:scale-[1.02] hover:opacity-90 md:mt-4.5 md:py-2.5"
+          >
+            <img
+              class="h-5 w-5"
+              src="./assets/Logo Image/Google logo 2.png"
+              alt="Google logo"
+            />
+            <span class="text-white/90">Sign up with Google</span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div
+      class="success-modal fixed inset-0 z-20 hidden items-center justify-center bg-linear-to-br from-gray-900 via-purple-900 to-black"
+    >
+      <div
+        class="modal-content h-30 w-[80%] max-w-md rounded-xl border-white/20 bg-white/10 py-2 text-center shadow-lg backdrop-blur-2xl md:h-50 md:w-[70%] md:py-6"
+      >
+        <h2
+          class="modal-title mb-1 text-lg font-bold text-white md:mb-3 md:text-xl"
+        >
+          🎉 Signup Successful!
+        </h2>
+        <h2
+          class="modal-title-greet text-lg font-bold text-white md:mb-3 md:text-xl"
+        ></h2>
+        <p
+          class="message mb-2 text-xs text-white/90 md:mb-4 md:pl-6 md:text-base"
+        >
+          Your account has been created successfully.
+        </p>
+        <button
+          class="close-modal mx-auto flex cursor-pointer items-center rounded bg-linear-to-r from-purple-500 to-blue-500 px-3 text-center text-sm text-white shadow-lg transition duration-200 hover:scale-105 hover:opacity-95 md:rounded-lg md:px-8 md:py-1 md:text-base md:font-semibold"
+        >
+          OK
+        </button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
